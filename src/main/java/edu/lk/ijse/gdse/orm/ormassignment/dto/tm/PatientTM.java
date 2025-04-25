@@ -1,4 +1,5 @@
-package edu.lk.ijse.gdse.orm.ormassignment.dto;
+package edu.lk.ijse.gdse.orm.ormassignment.dto.tm;
+
 
 import lombok.*;
 
@@ -7,19 +8,17 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @ToString
-
-public class PatientDTO {
+public class PatientTM {
 
     private String patientId;
 
 
     private String patientName;
-
     private String patientGender;
     private int patientAge;
     private String patientAddress;
     private String patientEmail;
-
 
 }

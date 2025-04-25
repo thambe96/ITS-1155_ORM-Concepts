@@ -1,4 +1,9 @@
 package edu.lk.ijse.gdse.orm.ormassignment.dao.custom;
 
-public interface PatientDAO {
+import edu.lk.ijse.gdse.orm.ormassignment.dao.CrudDAO;
+import edu.lk.ijse.gdse.orm.ormassignment.entity.Patient;
+
+public interface PatientDAO extends CrudDAO<Patient> {
+
+
 }
