@@ -1,6 +1,7 @@
 package edu.lk.ijse.gdse.orm.ormassignment.dao;
 
 import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.impl.PatientDAOImpl;
+import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.impl.TherapyProgramDAOImpl;
 
 public class DAOFactory {
 
@@ -17,13 +18,14 @@ public class DAOFactory {
     }
 
     public enum DAOType {
-        PATIENT;
+        PATIENT, THERAPY_PROGRAM;
     }
 
     public SuperDAO getDAO(DAOType type) {
 
         return switch (type) {
             case PATIENT -> new PatientDAOImpl();
+            case THERAPY_PROGRAM -> new TherapyProgramDAOImpl();
             default -> null;
         };
 
