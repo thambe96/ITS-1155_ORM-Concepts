@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="520.0" prefWidth="560.0" style="-fx-background-color: #D1F4ED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.lk.ijse.gdse.orm.ormassignment.controller.RegisterDetailsController">
+   <children>
+      <Text layoutX="137.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Patient to Therapy Program">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <VBox layoutX="34.0" layoutY="70.0" prefHeight="146.0" prefWidth="513.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="513.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient ID" wrappingWidth="89.89013671875" />
+                  <Pane prefHeight="39.0" prefWidth="71.0" />
+                  <ComboBox fx:id="cmbPatientId" prefHeight="31.0" prefWidth="225.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="513.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="41.0" prefHeight="17.0" prefWidth="513.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program ID" wrappingWidth="89.89013671875" />
+                  <Pane prefHeight="39.0" prefWidth="71.0" />
+                  <ComboBox fx:id="cmbPrgId" prefHeight="31.0" prefWidth="225.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="41.0" prefHeight="22.0" prefWidth="513.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="72.0" prefHeight="17.0" prefWidth="513.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shedule Date" wrappingWidth="89.89013671875" />
+                  <Pane prefHeight="39.0" prefWidth="71.0" />
+                  <DatePicker fx:id="datePicker" prefHeight="31.0" prefWidth="225.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox layoutX="34.0" layoutY="260.0" prefHeight="22.0" prefWidth="513.0">
+         <children>
+            <Pane prefHeight="31.0" prefWidth="120.0" />
+            <Button fx:id="btnAddProgram" mnemonicParsing="false" onAction="#addProgram" prefHeight="31.0" prefWidth="135.0" text="Add Program" />
+            <Pane layoutX="145.0" layoutY="10.0" prefHeight="31.0" prefWidth="70.0" />
+            <Button fx:id="btnRestAddPrg" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetProgramDetails" prefHeight="31.0" prefWidth="135.0" text="Reset" />
+            <Pane layoutX="210.0" layoutY="10.0" prefHeight="31.0" prefWidth="120.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

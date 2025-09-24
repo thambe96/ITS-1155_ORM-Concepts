@@ -43,29 +43,35 @@ public class PatientBOImpl implements PatientBO {
     public List<PatientDTO> getAllPatients() {
 
 
-/*
         List<PatientDTO> allPatients = new ArrayList<>();
         try {
-            List<Patient> all = patientDAO.getAll();
-            for (Patient patient : all) {
-                allPatients.add(new PatientDTO(
 
-                        patient.getPatientId(),
-                        patient.getPatientName(),
-                        patient.getPatientGender(),
-                        patient.getPatientAge(),
-                        patient.getPatientAddress(),
-                        patient.getPatientEmail())
-                );
+
+            List<Patient> all = patientDAO.getAll();
+
+
+            for (Patient patient : all) {
+
+                PatientDTO patientDTO = new PatientDTO();
+                patientDTO.setPatientId(patient.getPatientId());
+
+                allPatients.add(patientDTO);
+
+
+
             }
+
+
         } catch (Exception e) {
+
+
             throw new RuntimeException(e);
+
+
         }
 
-        */
 
-
-        return null /*allPatients*/;
+        return allPatients;
     }
 
 

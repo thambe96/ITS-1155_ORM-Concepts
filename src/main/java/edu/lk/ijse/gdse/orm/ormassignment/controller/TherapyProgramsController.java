@@ -86,7 +86,7 @@ public class TherapyProgramsController {
         String sfee = price.getText();
 
         TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO();
-        therapyProgramDTO.setTherapyProgramId(sid);
+        therapyProgramDTO.setTherapyProgramId(Integer.parseInt(sid));
         therapyProgramDTO.setTherapyProgramName(sname);
         therapyProgramDTO.setDuration(Integer.parseInt(sduration));
         therapyProgramDTO.setFee(Double.parseDouble(sfee));

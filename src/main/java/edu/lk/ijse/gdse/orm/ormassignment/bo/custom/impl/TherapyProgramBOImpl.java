@@ -48,7 +48,6 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
 
 
 
-/*
 
         List<TherapyProgramDTO> allTherapyPrograms = new ArrayList<>();
 
@@ -58,26 +57,23 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
 
             for (TherapyProgram therapyProgram : all) {
 
-                allTherapyPrograms.add(new TherapyProgramDTO(
+                TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO();
+                therapyProgramDTO.setTherapyProgramId(therapyProgram.getTherapyProgramId());
 
-                        therapyProgram.getTherapyProgramId(),
-                        therapyProgram.getTherapyProgramName(),
-                        therapyProgram.getDuration(),
-                        therapyProgram.getFee()
-
-                ));
+                allTherapyPrograms.add(therapyProgramDTO);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-*/
 
 
 
-
-        return null /*allTherapyPrograms*/;
+        return allTherapyPrograms;
 
     }
+
+
+
 
     @Override
     public boolean updateTherapyProgram(TherapyProgramDTO therapyProgramDTO) {

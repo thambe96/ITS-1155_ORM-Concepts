@@ -19,7 +19,7 @@ public class PatientDAOImpl implements PatientDAO {
         transaction.commit();
         session.close();
 
-        System.out.println("patient saved successfully!!");
+
 
         return true;
     }
@@ -37,6 +37,8 @@ public class PatientDAOImpl implements PatientDAO {
         return list;
 
     }
+
+
 
     @Override
     public boolean update(Patient entity) throws Exception {

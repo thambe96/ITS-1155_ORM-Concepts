@@ -31,7 +31,7 @@ public class HomePageController {
 
     @FXML
     void navigateToReportsManagement(ActionEvent event) {
-        String url = "/view/reports.fxml";
+        String url = "/view/register-details.fxml";
         loadPage(url);
     }
 

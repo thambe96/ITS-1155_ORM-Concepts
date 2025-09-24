@@ -21,7 +21,7 @@
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#navigateToTherapyProgramManagement" prefHeight="31.0" prefWidth="179.0" text="THERAPY PROGRAMS" />
             <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#navigateToTherapySessionManagement" prefHeight="31.0" prefWidth="179.0" text="THERAPY SESSIONS" />
             <Button layoutX="10.0" layoutY="134.0" mnemonicParsing="false" onAction="#navigateToPayamentManagement" prefHeight="31.0" prefWidth="179.0" text="PAYMENTS" />
-            <Button layoutX="10.0" layoutY="165.0" mnemonicParsing="false" onAction="#navigateToReportsManagement" prefHeight="31.0" prefWidth="179.0" text="REPORTS" />
+            <Button layoutX="10.0" layoutY="165.0" mnemonicParsing="false" onAction="#navigateToReportsManagement" prefHeight="31.0" prefWidth="179.0" text="Add Program" />
          </children>
       </VBox>
       <AnchorPane fx:id="ancStageHome" layoutX="230.0" layoutY="69.0" prefHeight="520.0" prefWidth="560.0" style="-fx-background-color: pink;" />

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class PatientDTO {
 
-    private String patientId;
+    private int patientId;
 
 
     private String patientName;

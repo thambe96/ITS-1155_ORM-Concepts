@@ -93,7 +93,7 @@ public class PatientManagementController {
 
 
         PatientDTO patientDTO = new PatientDTO();
-        patientDTO.setPatientId(sid);
+        patientDTO.setPatientId(Integer.parseInt(sid));
         patientDTO.setPatientName(sname);
         patientDTO.setPatientGender(sgender);
         patientDTO.setPatientAge(Integer.parseInt(sage));
