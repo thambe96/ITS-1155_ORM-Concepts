@@ -15,13 +15,15 @@ public class PatientDAOImpl implements PatientDAO {
 
         Session session = FactoryConfiguration.getInstance().getSessionFactory();
         Transaction transaction = session.beginTransaction();
-        session.save(entity);
+        session.persist(entity);
         transaction.commit();
         session.close();
 
+        System.out.println("patient saved successfully!!");
 
         return true;
     }
+
 
     @Override
     public List<Patient> getAll() throws Exception {

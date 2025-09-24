@@ -10,6 +10,7 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.Patient;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapyProgram;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,35 +24,24 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
 
     TherapyProgramDAO therapyProgramDAO = (TherapyProgramDAO) DAOFactory.getDaoFactory().getDAO(THERAPY_PROGRAM);
 
+    ModelMapper modelMapper = new ModelMapper();
+
 
 
     @Override
     public boolean saveTherapyProgram(TherapyProgramDTO therapyProgramDTO) {
 
-
-
-   /*
         try {
-            return therapyProgramDAO.save(new TherapyProgram(
-
-                    therapyProgramDTO.getTherapyProgramId(),
-                    therapyProgramDTO.getTherapyProgramName(),
-                    therapyProgramDTO.getDuration(),
-                    therapyProgramDTO.getFee()
-
-            ));
+            return therapyProgramDAO.save(modelMapper.map(therapyProgramDTO, TherapyProgram.class));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-*/
-
-
-
-
-        return false;
 
     }
+
+
+
 
     @Override
     public List<TherapyProgramDTO> getAllTherapyPrograms() {

@@ -85,18 +85,33 @@ public class TherapyProgramsController {
         String sduration = duration.getText();
         String sfee = price.getText();
 
-/*
+        TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO();
+        therapyProgramDTO.setTherapyProgramId(sid);
+        therapyProgramDTO.setTherapyProgramName(sname);
+        therapyProgramDTO.setDuration(Integer.parseInt(sduration));
+        therapyProgramDTO.setFee(Double.parseDouble(sfee));
+
+
+
 
         try {
-            therapyProgramBO.saveTherapyProgram(new TherapyProgramDTO(sid, sname, Integer.parseInt(sduration), Double.parseDouble(sfee)));
-            loadAllTherapyPrograms();
+
+            therapyProgramBO.saveTherapyProgram(therapyProgramDTO);
+
+//            loadAllTherapyPrograms();
             new Alert(Alert.AlertType.CONFIRMATION,"Program Added Successful !", ButtonType.OK).show();
+
+
         } catch (Exception e) {
+
+
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Program Added Not Successful!", ButtonType.OK).show();
+
+
         }
 
-        */
+
 
 
 

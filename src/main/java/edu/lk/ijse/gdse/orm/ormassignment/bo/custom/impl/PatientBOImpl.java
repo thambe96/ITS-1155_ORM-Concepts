@@ -5,6 +5,7 @@ import edu.lk.ijse.gdse.orm.ormassignment.dao.DAOFactory;
 import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.PatientDAO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.PatientDTO;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.Patient;
+import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,34 +17,21 @@ public class PatientBOImpl implements PatientBO {
 
     PatientDAO patientDAO = (PatientDAO) DAOFactory.getDaoFactory().getDAO(PATIENT);
 
+    ModelMapper modelMapper = new ModelMapper();
+
 
 
 
     @Override
     public boolean savePatient(PatientDTO patientDTO) {
 
-
-/*
         try {
-            return patientDAO.save(new Patient(
-
-                    patientDTO.getPatientId(),
-                    patientDTO.getPatientName(),
-                    patientDTO.getPatientGender(),
-                    patientDTO.getPatientAge(),
-                    patientDTO.getPatientAddress(),
-                    patientDTO.getPatientEmail())
-
-
-            );
+            return patientDAO.save(modelMapper.map(patientDTO, Patient.class));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        */
 
-
-        return false;
     }
 
 

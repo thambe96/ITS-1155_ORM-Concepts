@@ -5,6 +5,7 @@ module edu.lk.ijse.gdse.orm.ormassignment {
     requires jakarta.persistence;
     requires static lombok;
     requires java.naming;
+    requires modelmapper;
 
 
     opens edu.lk.ijse.gdse.orm.ormassignment to javafx.fxml;

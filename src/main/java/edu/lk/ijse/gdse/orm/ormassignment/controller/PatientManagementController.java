@@ -92,19 +92,35 @@ public class PatientManagementController {
         String semail = email.getText();
 
 
+        PatientDTO patientDTO = new PatientDTO();
+        patientDTO.setPatientId(sid);
+        patientDTO.setPatientName(sname);
+        patientDTO.setPatientGender(sgender);
+        patientDTO.setPatientAge(Integer.parseInt(sage));
+        patientDTO.setPatientAddress(saddress);
+        patientDTO.setPatientEmail(semail);
 
-/*
+
         try {
-            patientBO.savePatient(new PatientDTO(sid, sname, sgender, Integer.parseInt(sage), saddress, semail));
-            loadAllPatients();
-            refresh();
+
+
+            patientBO.savePatient(patientDTO);
+//            loadAllPatients();
+//            refresh();
             new Alert(Alert.AlertType.CONFIRMATION,"Patient Added Successful !", ButtonType.OK).show();
+
+
+
         } catch (Exception e) {
+
+
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Patient Added Not Successful!", ButtonType.OK).show();
+
+
         }
 
-        */
+
 
 
 

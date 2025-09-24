@@ -1,6 +1,7 @@
 package edu.lk.ijse.gdse.orm.ormassignment.config;
 
 import edu.lk.ijse.gdse.orm.ormassignment.entity.Patient;
+import edu.lk.ijse.gdse.orm.ormassignment.entity.RegisterDetails;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapyProgram;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,6 +21,7 @@ public class FactoryConfiguration {
 
         config.addAnnotatedClass(Patient.class);
         config.addAnnotatedClass(TherapyProgram.class);
+        config.addAnnotatedClass(RegisterDetails.class);
 //        config.addAnnotatedClass(Orders.class);
 
 

@@ -35,7 +35,7 @@ public class Patient {
     @Column(name = "patient_email")
     private String patientEmail;
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<RegisterDetails> registerDetails;
 
 

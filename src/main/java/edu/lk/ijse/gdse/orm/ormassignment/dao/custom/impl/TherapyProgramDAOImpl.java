@@ -16,13 +16,17 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
 
         Session session = FactoryConfiguration.getInstance().getSessionFactory();
         Transaction transaction = session.beginTransaction();
-        session.save(entity);
+        session.persist(entity);
         transaction.commit();
         session.close();
 
-
         return true;
     }
+
+
+
+
+
 
     @Override
     public List<TherapyProgram> getAll() throws Exception {
@@ -36,6 +40,12 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         return list;
     }
 
+
+
+
+
+
+
     @Override
     public boolean update(TherapyProgram entity) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSessionFactory();
@@ -46,6 +56,10 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
 
         return true;
     }
+
+
+
+
 
 
 
