@@ -109,4 +109,18 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public TherapyProgramDTO getTherapyProgram(int therapyProgramID) {
+        TherapyProgram therapyProgram = therapyProgramDAO.findById(therapyProgramID);
+
+        TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO();
+        therapyProgramDTO.setTherapyProgramId(therapyProgram.getTherapyProgramId());
+        therapyProgramDTO.setTherapyProgramName(therapyProgram.getTherapyProgramName());
+        therapyProgramDTO.setDuration(therapyProgram.getDuration());
+        therapyProgramDTO.setFee(therapyProgram.getFee());
+
+
+        return therapyProgramDTO;
+    }
 }

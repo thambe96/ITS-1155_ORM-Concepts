@@ -7,4 +7,6 @@ public interface PatientDAO extends CrudDAO<Patient> {
 
 //    public String getNextId() throws Exception;
 
+    public Patient getPatientById(int id);
+
 }

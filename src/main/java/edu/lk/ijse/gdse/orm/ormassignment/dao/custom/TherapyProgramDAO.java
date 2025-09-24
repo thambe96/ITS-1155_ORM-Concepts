@@ -5,4 +5,7 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapyProgram;
 
 public interface TherapyProgramDAO extends CrudDAO<TherapyProgram> {
 
+    public TherapyProgram findById(int id);
+
+
 }

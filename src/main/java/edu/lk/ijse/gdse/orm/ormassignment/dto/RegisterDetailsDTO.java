@@ -22,8 +22,8 @@ public class RegisterDetailsDTO {
     private int registerDetailsId;
     private Date date;
     private int numberOfSessions;
-    private Patient patient;
-    private TherapyProgram therapyProgram;
+    private int patientId;
+    private int therapyProgramId;
 
 
 

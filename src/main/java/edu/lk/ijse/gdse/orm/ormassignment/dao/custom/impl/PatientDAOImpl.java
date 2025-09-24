@@ -68,6 +68,18 @@ public class PatientDAOImpl implements PatientDAO {
         return true;
     }
 
+    @Override
+    public Patient getPatientById(int id) {
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction transaction = session.beginTransaction();
+        Patient patient = (Patient) session.get(Patient.class, id);
+        transaction.commit();
+        session.close();
+
+        return patient;
+    }
+
 
 
 

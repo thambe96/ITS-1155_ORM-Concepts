@@ -130,6 +130,22 @@ public class PatientBOImpl implements PatientBO {
         }
     }
 
+    @Override
+    public PatientDTO getPatient(int patientId) {
+
+        Patient patient = patientDAO.getPatientById(patientId);
+        PatientDTO patientDTO = new PatientDTO();
+        patientDTO.setPatientId(patient.getPatientId());
+        patientDTO.setPatientName(patient.getPatientName());
+        patientDTO.setPatientGender(patient.getPatientGender());
+        patientDTO.setPatientAge(patient.getPatientAge());
+        patientDTO.setPatientAddress(patient.getPatientAddress());
+        patientDTO.setPatientEmail(patient.getPatientEmail());
+
+
+        return patientDTO;
+    }
+
 
 
 

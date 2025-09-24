@@ -79,6 +79,16 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
     }
 
 
+    @Override
+    public TherapyProgram findById(int id) {
 
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction transaction = session.beginTransaction();
 
+        TherapyProgram entity = (TherapyProgram) session.get(TherapyProgram.class, id);
+        transaction.commit();
+        session.close();
+
+        return entity;
+    }
 }
