@@ -1,6 +1,10 @@
 package edu.lk.ijse.gdse.orm.ormassignment.dto;
 
+import edu.lk.ijse.gdse.orm.ormassignment.entity.RegisterDetails;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 
 @Getter
@@ -20,6 +24,10 @@ public class PatientDTO {
     private int patientAge;
     private String patientAddress;
     private String patientEmail;
+    private List<RegisterDetails> registerDetails;
 
 
 }
+
+
+

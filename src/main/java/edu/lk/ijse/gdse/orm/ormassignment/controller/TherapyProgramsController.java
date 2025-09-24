@@ -49,7 +49,7 @@ public class TherapyProgramsController {
         tblProgram.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("duration"));
         tblProgram.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("fee"));
 
-        loadAllTherapyPrograms();
+//        loadAllTherapyPrograms();
     }
 
 
@@ -73,7 +73,7 @@ public class TherapyProgramsController {
 
     @FXML
     void reset(ActionEvent event) {
-        refresh();
+//        refresh();
     }
 
     @FXML
@@ -85,7 +85,7 @@ public class TherapyProgramsController {
         String sduration = duration.getText();
         String sfee = price.getText();
 
-
+/*
 
         try {
             therapyProgramBO.saveTherapyProgram(new TherapyProgramDTO(sid, sname, Integer.parseInt(sduration), Double.parseDouble(sfee)));
@@ -95,6 +95,9 @@ public class TherapyProgramsController {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Program Added Not Successful!", ButtonType.OK).show();
         }
+
+        */
+
 
 
     }
@@ -109,7 +112,7 @@ public class TherapyProgramsController {
         String sfee = price.getText();
 
 
-
+/*
         try {
             therapyProgramBO.updateTherapyProgram(new TherapyProgramDTO(sid, sname, Integer.parseInt(sduration), Double.parseDouble(sfee)));
             loadAllTherapyPrograms();
@@ -118,6 +121,8 @@ public class TherapyProgramsController {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Program Added Not Successful!", ButtonType.OK).show();
         }
+        */
+
 
 
 
@@ -125,6 +130,8 @@ public class TherapyProgramsController {
 
     public void loadAllTherapyPrograms() {
 
+
+    /*
         tblProgram.getItems().clear();
 
         ObservableList<TherapyProgramTM> programRows= (ObservableList<TherapyProgramTM>) tblProgram.getItems();
@@ -146,6 +153,9 @@ public class TherapyProgramsController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        */
+
+
 
 
     }
@@ -154,22 +164,26 @@ public class TherapyProgramsController {
     @FXML
     void clickOn(MouseEvent event) {
 
-        TherapyProgramTM tm = (TherapyProgramTM) tblProgram.getSelectionModel().getSelectedItem();
+  /*      TherapyProgramTM tm = (TherapyProgramTM) tblProgram.getSelectionModel().getSelectedItem();
         id.setText(tm.getTherapyProgramId());
         name.setText(tm.getTherapyProgramName());
         duration.setText(String.valueOf(tm.getDuration()));
-        price.setText(String.valueOf(tm.getFee()));
+        price.setText(String.valueOf(tm.getFee()));*/
 
 
     }
 
 
     public void refresh() {
+
+/*
         id.setText(null);
         name.setText(null);
         duration.setText(null);
         price.setText(null);
         loadAllTherapyPrograms();
+        */
+
 
     }
 

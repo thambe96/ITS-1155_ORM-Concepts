@@ -63,4 +63,41 @@ public class PatientDAOImpl implements PatientDAO {
 
         return true;
     }
+
+
+
+
+
+    /*
+    @Override
+    public String getNextId() throws Exception {
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction transaction = session.beginTransaction();
+
+        String lastId = session.createNativeQuery("SELECT patient_id FROM patient ORDER BY patient_id DESC LIMIT 1", String.class)
+                .getSingleResultOrNull();
+
+
+
+         transaction.commit();
+         session.close();
+
+         if (lastId != null) {
+             String substring = lastId.substring(1); // Extract the numeric part
+             int i = Integer.parseInt(substring); // Convert the numeric part to integer
+             int newIdIndex = i + 1; // Increment the number by 1
+             return String.format("P%03d", newIdIndex);
+
+         }
+
+        return "P001";
+    }
+
+    */
+
+
+
+
+
 }

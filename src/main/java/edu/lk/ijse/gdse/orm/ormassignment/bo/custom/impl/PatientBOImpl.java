@@ -17,9 +17,13 @@ public class PatientBOImpl implements PatientBO {
     PatientDAO patientDAO = (PatientDAO) DAOFactory.getDaoFactory().getDAO(PATIENT);
 
 
+
+
     @Override
     public boolean savePatient(PatientDTO patientDTO) {
 
+
+/*
         try {
             return patientDAO.save(new Patient(
 
@@ -35,11 +39,23 @@ public class PatientBOImpl implements PatientBO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        */
+
+
+        return false;
     }
+
+
+
+
+
 
     @Override
     public List<PatientDTO> getAllPatients() {
 
+
+/*
         List<PatientDTO> allPatients = new ArrayList<>();
         try {
             List<Patient> all = patientDAO.getAll();
@@ -58,12 +74,24 @@ public class PatientBOImpl implements PatientBO {
             throw new RuntimeException(e);
         }
 
+        */
 
-        return allPatients;
+
+        return null /*allPatients*/;
     }
+
+
+
+
+
 
     @Override
     public boolean updatePatient(PatientDTO patientDTO) {
+
+
+
+
+ /*
         try {
             return patientDAO.update((new Patient(
 
@@ -77,7 +105,20 @@ public class PatientBOImpl implements PatientBO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        */
+
+
+        return false;
+
+
+
     }
+
+
+
+
+
+
 
     @Override
     public boolean deletePatient(String patientId) {
@@ -88,4 +129,21 @@ public class PatientBOImpl implements PatientBO {
             throw new RuntimeException(e);
         }
     }
+
+
+
+
+    /*
+    @Override
+    public String getNextPatientId() {
+        try {
+            return patientDAO.getNextId();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    */
+
+
+
 }

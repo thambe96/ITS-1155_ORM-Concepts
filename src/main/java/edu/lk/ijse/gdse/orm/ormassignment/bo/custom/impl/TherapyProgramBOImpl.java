@@ -28,6 +28,9 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
     @Override
     public boolean saveTherapyProgram(TherapyProgramDTO therapyProgramDTO) {
 
+
+
+   /*
         try {
             return therapyProgramDAO.save(new TherapyProgram(
 
@@ -41,12 +44,21 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+*/
 
+
+
+
+        return false;
 
     }
 
     @Override
     public List<TherapyProgramDTO> getAllTherapyPrograms() {
+
+
+
+/*
 
         List<TherapyProgramDTO> allTherapyPrograms = new ArrayList<>();
 
@@ -68,14 +80,21 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+*/
 
 
-        return allTherapyPrograms;
+
+
+        return null /*allTherapyPrograms*/;
 
     }
 
     @Override
     public boolean updateTherapyProgram(TherapyProgramDTO therapyProgramDTO) {
+
+
+
+     /*
         try {
             return therapyProgramDAO.update(new TherapyProgram(
 
@@ -88,7 +107,10 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
 
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }
+        }*/
+
+        return false;
+
     }
 
     @Override

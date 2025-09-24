@@ -1,12 +1,11 @@
 package edu.lk.ijse.gdse.orm.ormassignment.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,8 +16,9 @@ public class Patient {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "patient_id")
-    private String patientId;
+    private int patientId;
 
     @Column(name = "patient_name")
     private String patientName;
@@ -34,6 +34,9 @@ public class Patient {
 
     @Column(name = "patient_email")
     private String patientEmail;
+
+    @OneToMany(mappedBy = "patient")
+    private List<RegisterDetails> registerDetails;
 
 
 

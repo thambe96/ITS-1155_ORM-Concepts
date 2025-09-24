@@ -8,10 +8,7 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.Patient;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -22,8 +19,11 @@ import static edu.lk.ijse.gdse.orm.ormassignment.bo.BOFactory.BOType.PATIENT_BO;
 public class PatientManagementController {
 
 
+//    @FXML
+//    private TextField id;
+
     @FXML
-    private TextField id;
+    private Label id;
 
     @FXML
     private TextField name;
@@ -56,6 +56,7 @@ public class PatientManagementController {
         tblPatient.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("patientAddress"));
         tblPatient.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("patientEmail"));
         loadAllPatients();
+        refresh();
     }
 
 
@@ -91,14 +92,21 @@ public class PatientManagementController {
         String semail = email.getText();
 
 
+
+/*
         try {
             patientBO.savePatient(new PatientDTO(sid, sname, sgender, Integer.parseInt(sage), saddress, semail));
             loadAllPatients();
+            refresh();
             new Alert(Alert.AlertType.CONFIRMATION,"Patient Added Successful !", ButtonType.OK).show();
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Patient Added Not Successful!", ButtonType.OK).show();
         }
+
+        */
+
+
 
 
     }
@@ -113,14 +121,22 @@ public class PatientManagementController {
         String saddress = address.getText();
         String semail = email.getText();
 
+
+/*
         try {
             patientBO.updatePatient(new PatientDTO(sid, sname, sgender, Integer.parseInt(sage), saddress, semail));
             loadAllPatients();
+            refresh();
             new Alert(Alert.AlertType.CONFIRMATION,"Patient Updated Successful !", ButtonType.OK).show();
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Updation Patient was Not Successful!", ButtonType.OK).show();
         }
+
+
+        */
+
+
 
     }
 
@@ -128,6 +144,9 @@ public class PatientManagementController {
 
     public void loadAllPatients() {
 
+
+
+/*
         tblPatient.getItems().clear();
         ObservableList<PatientTM> patientRows= (ObservableList<PatientTM>) tblPatient.getItems();
         try {
@@ -151,6 +170,8 @@ public class PatientManagementController {
             throw new RuntimeException(e);
         }
 
+        */
+
 
 
     }
@@ -159,6 +180,9 @@ public class PatientManagementController {
 
     @FXML
     void clickOn(MouseEvent event) {
+
+
+     /*
         PatientTM tm = (PatientTM) tblPatient.getSelectionModel().getSelectedItem();
         id.setText(tm.getPatientId());
         name.setText(tm.getPatientName());
@@ -167,16 +191,31 @@ public class PatientManagementController {
         address.setText(tm.getPatientAddress());
         email.setText(tm.getPatientEmail());
 
+        */
+
+
     }
 
     public void refresh() {
-        id.setText(null);
+
+
+//        id.setText(null);
+
+//        String nextId = ""; /*patientBO.getNextPatientId();*/
+
+
+/*
+        id.setText(nextId);
+
         name.setText(null);
         gender.setText(null);
         age.setText(null);
         address.setText(null);
         email.setText(null);
         loadAllPatients();
+        */
+
+
     }
 
 
