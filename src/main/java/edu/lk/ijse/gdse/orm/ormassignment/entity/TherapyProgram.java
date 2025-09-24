@@ -31,8 +31,8 @@ public class TherapyProgram {
     @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL)
     private List<RegisterDetails> registerDetails;
 
-
-
+    @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL)
+    private List<Therapist> therapists;
 
 
 }
