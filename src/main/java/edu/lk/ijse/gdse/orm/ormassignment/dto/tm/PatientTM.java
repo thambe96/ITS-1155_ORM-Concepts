@@ -12,7 +12,7 @@ import lombok.*;
 @ToString
 public class PatientTM {
 
-    private String patientId;
+    private int patientId;
 
 
     private String patientName;

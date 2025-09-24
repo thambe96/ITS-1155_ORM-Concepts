@@ -67,7 +67,7 @@ public class PatientManagementController {
         try {
             patientBO.deletePatient(id.getText());
             refresh();
-//            loadAllPatients();
+            loadAllPatients();
             new Alert(Alert.AlertType.CONFIRMATION,"Patient Deleted Successful !", ButtonType.OK).show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +93,7 @@ public class PatientManagementController {
 
 
         PatientDTO patientDTO = new PatientDTO();
-        patientDTO.setPatientId(Integer.parseInt(sid));
+//        patientDTO.setPatientId(Integer.parseInt(sid));
         patientDTO.setPatientName(sname);
         patientDTO.setPatientGender(sgender);
         patientDTO.setPatientAge(Integer.parseInt(sage));
@@ -105,8 +105,8 @@ public class PatientManagementController {
 
 
             patientBO.savePatient(patientDTO);
-//            loadAllPatients();
-//            refresh();
+            loadAllPatients();
+            refresh();
             new Alert(Alert.AlertType.CONFIRMATION,"Patient Added Successful !", ButtonType.OK).show();
 
 
@@ -162,7 +162,7 @@ public class PatientManagementController {
 
 
 
-/*
+
         tblPatient.getItems().clear();
         ObservableList<PatientTM> patientRows= (ObservableList<PatientTM>) tblPatient.getItems();
         try {
@@ -186,7 +186,7 @@ public class PatientManagementController {
             throw new RuntimeException(e);
         }
 
-        */
+
 
 
 
@@ -198,16 +198,15 @@ public class PatientManagementController {
     void clickOn(MouseEvent event) {
 
 
-     /*
+
         PatientTM tm = (PatientTM) tblPatient.getSelectionModel().getSelectedItem();
-        id.setText(tm.getPatientId());
+        id.setText(String.valueOf(tm.getPatientId()));
         name.setText(tm.getPatientName());
         gender.setText(tm.getPatientGender());
         age.setText(String.valueOf(tm.getPatientAge()));
         address.setText(tm.getPatientAddress());
         email.setText(tm.getPatientEmail());
 
-        */
 
 
     }
@@ -215,12 +214,12 @@ public class PatientManagementController {
     public void refresh() {
 
 
-//        id.setText(null);
+        id.setText(null);
 
-//        String nextId = ""; /*patientBO.getNextPatientId();*/
+        String nextId = ""; /*patientBO.getNextPatientId();*/
 
 
-/*
+
         id.setText(nextId);
 
         name.setText(null);
@@ -229,7 +228,7 @@ public class PatientManagementController {
         address.setText(null);
         email.setText(null);
         loadAllPatients();
-        */
+
 
 
     }

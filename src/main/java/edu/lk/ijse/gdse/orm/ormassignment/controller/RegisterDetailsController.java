@@ -54,6 +54,13 @@ public class RegisterDetailsController {
     @FXML
     void addProgram(ActionEvent event) {
 
+        String id = String.valueOf(cmbPatientId.getValue());
+        String prgId = String.valueOf(cmbPrgId.getValue());
+        String date = String.valueOf(datePicker.getValue());
+        System.out.println(id);
+        System.out.println(prgId);
+        System.out.println(date);
+
 
 
     }

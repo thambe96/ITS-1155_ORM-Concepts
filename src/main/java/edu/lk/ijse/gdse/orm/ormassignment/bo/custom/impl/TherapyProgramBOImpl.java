@@ -48,7 +48,6 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
 
 
 
-
         List<TherapyProgramDTO> allTherapyPrograms = new ArrayList<>();
 
         try {
@@ -59,6 +58,9 @@ public class TherapyProgramBOImpl implements TherapyProgramBO {
 
                 TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO();
                 therapyProgramDTO.setTherapyProgramId(therapyProgram.getTherapyProgramId());
+                therapyProgramDTO.setTherapyProgramName(therapyProgram.getTherapyProgramName());
+                therapyProgramDTO.setDuration(therapyProgram.getDuration());
+                therapyProgramDTO.setFee(therapyProgram.getFee());
 
                 allTherapyPrograms.add(therapyProgramDTO);
             }

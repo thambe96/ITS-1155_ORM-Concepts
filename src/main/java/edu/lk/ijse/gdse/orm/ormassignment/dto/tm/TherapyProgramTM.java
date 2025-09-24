@@ -11,7 +11,7 @@ import lombok.*;
 
 public class TherapyProgramTM {
 
-    private String therapyProgramId;
+    private int therapyProgramId;
     private String therapyProgramName;
     private int duration;
     private double fee;

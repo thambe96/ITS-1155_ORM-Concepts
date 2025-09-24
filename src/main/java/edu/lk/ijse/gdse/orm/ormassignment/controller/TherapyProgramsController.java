@@ -16,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.util.List;
 
@@ -23,9 +24,13 @@ import static edu.lk.ijse.gdse.orm.ormassignment.bo.BOFactory.BOType.THERAPY_PRO
 
 public class TherapyProgramsController {
 
+//
+//    @FXML
+//    private TextField id;
+
 
     @FXML
-    private TextField id;
+    private Text id;
 
     @FXML
     private TextField name;
@@ -49,7 +54,7 @@ public class TherapyProgramsController {
         tblProgram.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("duration"));
         tblProgram.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("fee"));
 
-//        loadAllTherapyPrograms();
+        loadAllTherapyPrograms();
     }
 
 
@@ -73,7 +78,7 @@ public class TherapyProgramsController {
 
     @FXML
     void reset(ActionEvent event) {
-//        refresh();
+        refresh();
     }
 
     @FXML
@@ -86,10 +91,12 @@ public class TherapyProgramsController {
         String sfee = price.getText();
 
         TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO();
-        therapyProgramDTO.setTherapyProgramId(Integer.parseInt(sid));
+//        therapyProgramDTO.setTherapyProgramId(Integer.parseInt(sid));
         therapyProgramDTO.setTherapyProgramName(sname);
         therapyProgramDTO.setDuration(Integer.parseInt(sduration));
         therapyProgramDTO.setFee(Double.parseDouble(sfee));
+
+        refresh();
 
 
 
@@ -146,7 +153,7 @@ public class TherapyProgramsController {
     public void loadAllTherapyPrograms() {
 
 
-    /*
+
         tblProgram.getItems().clear();
 
         ObservableList<TherapyProgramTM> programRows= (ObservableList<TherapyProgramTM>) tblProgram.getItems();
@@ -168,7 +175,7 @@ public class TherapyProgramsController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        */
+
 
 
 
@@ -179,11 +186,11 @@ public class TherapyProgramsController {
     @FXML
     void clickOn(MouseEvent event) {
 
-  /*      TherapyProgramTM tm = (TherapyProgramTM) tblProgram.getSelectionModel().getSelectedItem();
-        id.setText(tm.getTherapyProgramId());
+        TherapyProgramTM tm = (TherapyProgramTM) tblProgram.getSelectionModel().getSelectedItem();
+        id.setText(String.valueOf(tm.getTherapyProgramId()));
         name.setText(tm.getTherapyProgramName());
         duration.setText(String.valueOf(tm.getDuration()));
-        price.setText(String.valueOf(tm.getFee()));*/
+        price.setText(String.valueOf(tm.getFee()));
 
 
     }
@@ -191,13 +198,13 @@ public class TherapyProgramsController {
 
     public void refresh() {
 
-/*
+
         id.setText(null);
         name.setText(null);
         duration.setText(null);
         price.setText(null);
         loadAllTherapyPrograms();
-        */
+
 
 
     }

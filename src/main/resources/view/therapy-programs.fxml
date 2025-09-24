@@ -23,8 +23,9 @@
             <HBox alignment="CENTER" prefHeight="31.0" prefWidth="469.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program ID" wrappingWidth="118.0" />
+                  <Pane prefHeight="31.0" prefWidth="33.0" />
+                  <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="284.6708984375" />
                   <Pane prefHeight="30.0" prefWidth="40.0" />
-                  <TextField fx:id="id" prefHeight="30.0" prefWidth="340.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="469.0">
