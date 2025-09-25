@@ -2,6 +2,7 @@ package edu.lk.ijse.gdse.orm.ormassignment.dao;
 
 import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.impl.PatientDAOImpl;
 import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.impl.RegisterDetailsDAOImpl;
+import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.impl.TherapistDAOImpl;
 import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.impl.TherapyProgramDAOImpl;
 
 public class DAOFactory {
@@ -19,7 +20,7 @@ public class DAOFactory {
     }
 
     public enum DAOType {
-        PATIENT, THERAPY_PROGRAM, REGISTER_DETAILS;
+        PATIENT, THERAPY_PROGRAM, REGISTER_DETAILS, THERAPIST;
     }
 
     public SuperDAO getDAO(DAOType type) {
@@ -28,6 +29,7 @@ public class DAOFactory {
             case PATIENT -> new PatientDAOImpl();
             case THERAPY_PROGRAM -> new TherapyProgramDAOImpl();
             case REGISTER_DETAILS -> new RegisterDetailsDAOImpl();
+            case THERAPIST -> new TherapistDAOImpl();
             default -> null;
         };
 

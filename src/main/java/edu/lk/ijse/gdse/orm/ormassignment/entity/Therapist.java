@@ -20,6 +20,8 @@ public class Therapist {
 
     private String name;
 
+    private String email;
+
 
     @ManyToOne
     @JoinColumn(name = "therapy_program_id")
