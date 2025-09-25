@@ -28,8 +28,19 @@ public class RegisterDetailsDAOImpl implements RegisterDetailsDAO {
     
     @Override
     public List<RegisterDetails> getAll() throws Exception {
-        return List.of();
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction tx = session.beginTransaction();
+        List<RegisterDetails> registerDetailsList = session.createQuery("from RegisterDetails").list();
+        tx.commit();
+        session.close();
+
+
+        return registerDetailsList;
     }
+
+
+
 
     @Override
     public boolean update(RegisterDetails entity) throws Exception {

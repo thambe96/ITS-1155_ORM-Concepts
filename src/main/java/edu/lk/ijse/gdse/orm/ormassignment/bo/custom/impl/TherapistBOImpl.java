@@ -10,6 +10,7 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.Therapist;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapyProgram;
 import org.modelmapper.ModelMapper;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +83,31 @@ public class TherapistBOImpl implements TherapistBO {
 
     }
 
+    @Override
+    public List<TherapistDTO> getAvailableTherapists(int programId, LocalDateTime timeSlot) {
 
+        //Code goes here
+
+        List<Therapist> availableTherapists = therapistDAO.getAllAvailableTherapists(programId, timeSlot);
+        List<TherapistDTO> availableTherapistsDtos = new ArrayList<>();
+
+
+        for (Therapist therapist : availableTherapists) {
+
+            TherapistDTO therapistDTO = new TherapistDTO();
+
+            therapistDTO.setId(therapist.getId());
+            therapistDTO.setName(therapist.getName());
+            therapistDTO.setEmail(therapist.getEmail());
+            therapistDTO.setTherapyProgramId(therapist.getTherapyProgram().getTherapyProgramId());
+
+            availableTherapistsDtos.add(therapistDTO);
+
+        }
+
+
+        return availableTherapistsDtos;
+    }
 
 
 }

@@ -11,6 +11,9 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.RegisterDetails;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapyProgram;
 import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegisterDetailsBOImpl implements RegisterDetailsBO {
 
 
@@ -38,6 +41,33 @@ public class RegisterDetailsBOImpl implements RegisterDetailsBO {
         boolean result = registerDetailsDAO.save(registerDetails);
 
         return result;
+    }
+
+    @Override
+    public List<RegisterDetailsDTO> getRegisterDetails() throws Exception {
+
+        List<RegisterDetails> allRegisterDetailsList = registerDetailsDAO.getAll();
+
+        List<RegisterDetailsDTO> registerDetailsDTOList = new ArrayList<RegisterDetailsDTO>();
+
+        for (RegisterDetails registerDetails : allRegisterDetailsList) {
+
+            RegisterDetailsDTO registerDetailsDTO = new RegisterDetailsDTO();
+
+            registerDetailsDTO.setRegisterDetailsId(registerDetails.getRegisterDetailsId());
+            registerDetailsDTO.setPatientId(registerDetails.getPatient().getPatientId());
+            registerDetailsDTO.setDate(registerDetails.getDate());
+            registerDetailsDTO.setNumberOfSessions(registerDetails.getNumberOfSessions());
+            registerDetailsDTO.setTherapyProgramId(registerDetails.getTherapyProgram().getTherapyProgramId());
+
+
+
+            registerDetailsDTOList.add(registerDetailsDTO);
+
+        }
+
+
+        return registerDetailsDTOList;
     }
 
 }

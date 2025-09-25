@@ -38,6 +38,9 @@ public class Patient {
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<RegisterDetails> registerDetails;
 
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<TherapySession> therapySessions;
+
 
 
 }

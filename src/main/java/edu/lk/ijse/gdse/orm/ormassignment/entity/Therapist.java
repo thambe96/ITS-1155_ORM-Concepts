@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -26,5 +28,9 @@ public class Therapist {
     @ManyToOne
     @JoinColumn(name = "therapy_program_id")
     private TherapyProgram therapyProgram;
+
+
+    @OneToMany(mappedBy = "therapist")
+    private List<TherapySession> therapySessions;
 
 }

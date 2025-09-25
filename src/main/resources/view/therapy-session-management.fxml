@@ -36,23 +36,40 @@
       <HBox layoutX="10.0" layoutY="188.0" prefHeight="27.0" prefWidth="539.0">
          <children>
             <Pane layoutX="182.0" layoutY="10.0" prefHeight="27.0" prefWidth="55.0" />
-            <Label prefHeight="50.0" prefWidth="72.0" text="patient id" />
+            <Label prefHeight="50.0" prefWidth="72.0" text="patient id">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <Pane prefHeight="27.0" prefWidth="15.0" />
             <Label fx:id="lblPatId" prefHeight="27.0" prefWidth="85.0" text="id" />
-            <Pane layoutX="82.0" layoutY="10.0" prefHeight="27.0" prefWidth="100.0" />
-            <Label layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="89.0" text="patient name" />
+            <Pane layoutX="82.0" layoutY="10.0" prefHeight="27.0" prefWidth="46.0" />
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="97.0" text="patient name">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <Pane layoutX="182.0" layoutY="10.0" prefHeight="27.0" prefWidth="15.0" />
             <Label fx:id="lblPatName" layoutX="197.0" layoutY="10.0" prefHeight="27.0" prefWidth="115.0" text="name" />
          </children>
       </HBox>
       <HBox layoutX="6.0" layoutY="229.0" prefHeight="27.0" prefWidth="547.0">
          <children>
-            <Label prefHeight="31.0" prefWidth="120.0" text="shedule date" />
-            <DatePicker fx:id="shduleDate" prefHeight="31.0" prefWidth="169.0" />
-            <Pane prefHeight="31.0" prefWidth="92.0" />
-            <Label prefHeight="31.0" prefWidth="112.0" text="pick time slot" />
-            <Pane layoutX="179.0" layoutY="10.0" prefHeight="31.0" prefWidth="12.0" />
-            <ComboBox fx:id="cmbTimePicker" prefHeight="31.0" prefWidth="153.0" />
+            <Label prefHeight="31.0" prefWidth="108.0" text="Shedule Date:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="shduleDate" prefHeight="31.0" prefWidth="104.0" />
+            <Pane prefHeight="31.0" prefWidth="20.0" />
+            <Label prefHeight="31.0" prefWidth="77.0" text="Time Slot">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbTimePicker" prefHeight="31.0" prefWidth="122.0" />
+            <Pane layoutX="403.0" layoutY="10.0" prefHeight="31.0" prefWidth="59.0" />
+            <Button mnemonicParsing="false" onAction="#checkAvailability" prefHeight="31.0" prefWidth="123.0" text="availability" />
          </children>
       </HBox>
       <VBox layoutX="6.0" layoutY="283.0" prefHeight="85.0" prefWidth="547.0">
