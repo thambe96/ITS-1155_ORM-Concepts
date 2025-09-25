@@ -51,4 +51,20 @@ public class RegisterDetailsDAOImpl implements RegisterDetailsDAO {
     public boolean delete(String id) throws Exception {
         return false;
     }
+
+    @Override
+    public boolean updateRegisterDetails(RegisterDetails registerDetails, Session session) {
+
+        // exception handle here
+
+        try {
+            session.merge(registerDetails);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
+    }
 }

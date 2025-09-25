@@ -4,9 +4,11 @@ import edu.lk.ijse.gdse.orm.ormassignment.bo.BOFactory;
 import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.PatientBO;
 import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.RegisterDetailsBO;
 import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.TherapistBO;
+import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.TherapySessionBO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.PatientDTO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.RegisterDetailsDTO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.TherapistDTO;
+import edu.lk.ijse.gdse.orm.ormassignment.dto.TherapySessionDTO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.tm.RegisterDetailsTM;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.tm.TherapistAvailabilityTM;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.tm.TherapistTM;
@@ -14,10 +16,7 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.RegisterDetails;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
@@ -49,12 +48,28 @@ public class TherapySessionManagementController {
     @FXML
     private TableView<TherapistAvailabilityTM> tblTherapistAvalability;
 
+
+    @FXML
+    private Label lblTherapistId;
+
+    @FXML
+    private Label lblTherapistName;
+
+
+    private RegisterDetailsDTO registerDetailsDTO;
+
+    private TherapySessionDTO therapySessionDTO;
+
+
+
+
     private int programId;
 
 
     RegisterDetailsBO registerDetailsBO = (RegisterDetailsBO) BOFactory.getBoFactory().getBO(BOFactory.BOType.REGISTER_DETAILS_BO);
     PatientBO patientBO = (PatientBO) BOFactory.getBoFactory().getBO(BOFactory.BOType.PATIENT_BO);
     TherapistBO therapistBO = (TherapistBO) BOFactory.getBoFactory().getBO(BOFactory.BOType.THERAPIST);
+    TherapySessionBO therapySessionBO = (TherapySessionBO) BOFactory.getBoFactory().getBO(BOFactory.BOType.THERAPY_SESSION_BO);
 
 
 
@@ -62,7 +77,43 @@ public class TherapySessionManagementController {
     @FXML
     void bookAppoinment(ActionEvent event) {
 
+        therapySessionDTO = new TherapySessionDTO();
+
+        therapySessionDTO.setSheduledTime(getDateTime());
+        therapySessionDTO.setPatientId(Integer.parseInt(lblPatId.getText()));
+        therapySessionDTO.setTherapistId(Integer.parseInt(lblTherapistId.getText()));
+
+        boolean flag = therapySessionBO.saveTherapySession(therapySessionDTO, registerDetailsDTO);
+
+        if (flag) {
+
+            loadRegDetailsTable();
+
+            Alert.AlertType alertType = Alert.AlertType.CONFIRMATION;
+            Alert alert = new Alert(alertType);
+            alert.setContentText("Successful!");
+            alert.show();
+        } else {
+            Alert.AlertType alertType = Alert.AlertType.ERROR;
+            Alert alert = new Alert(alertType);
+            alert.setContentText("Something went wrong!");
+            alert.show();
+
+        }
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
 
     @FXML
     void reset(ActionEvent event) {
@@ -77,6 +128,7 @@ public class TherapySessionManagementController {
         tableClickEventHandler();
         initializePropValRegDetails();
         initializeProValTherapistAvailability();
+        tableClickEventHandlerForAvailableTherapist();
 
 
 
@@ -141,6 +193,19 @@ public class TherapySessionManagementController {
 
                 RegisterDetailsTM selectedItem = tblRegiDetails.getSelectionModel().getSelectedItem();
 
+
+                registerDetailsDTO = new RegisterDetailsDTO();
+
+                registerDetailsDTO.setRegisterDetailsId(selectedItem.getRegisterDetailsId());
+                registerDetailsDTO.setDate(selectedItem.getDate());
+                registerDetailsDTO.setNumberOfSessions(selectedItem.getNumberOfSessions());
+                registerDetailsDTO.setPatientId(selectedItem.getPatientId());
+                registerDetailsDTO.setTherapyProgramId(selectedItem.getTherapyProgramId());
+
+
+
+
+
                 programId = selectedItem.getTherapyProgramId(); // Therapy program id setup
 
                 if (selectedItem != null) {
@@ -163,8 +228,6 @@ public class TherapySessionManagementController {
         });
 
 
-
-
     }
 
 
@@ -181,6 +244,7 @@ public class TherapySessionManagementController {
         return dateTime;
 
     }
+
 
     @FXML
     void checkAvailability(ActionEvent event) {
@@ -199,9 +263,6 @@ public class TherapySessionManagementController {
             therapistRows.add(therapistAvailabilityTM);
 
         }
-
-
-
 
 //        System.out.println(therapistDTOList.size());
 
@@ -238,6 +299,34 @@ public class TherapySessionManagementController {
         tblTherapistAvalability.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("therapistId"));
         tblTherapistAvalability.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("therapistName"));
 
+
+    }
+
+
+    public void tableClickEventHandlerForAvailableTherapist() {
+
+        tblTherapistAvalability.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 1) {
+
+                TherapistAvailabilityTM therapistAvailabilityTM = tblTherapistAvalability.getSelectionModel().getSelectedItem();
+
+
+                if (therapistAvailabilityTM != null) {
+
+
+                    int therapistId = therapistAvailabilityTM.getTherapistId();
+                    String therapistName = therapistAvailabilityTM.getTherapistName();
+
+
+                    lblTherapistId.setText(String.valueOf(therapistId));
+                    lblTherapistName.setText(therapistName);
+
+
+                }
+
+            }
+
+        });
 
     }
 

@@ -10,6 +10,7 @@ public interface TherapistDAO extends CrudDAO<Therapist> {
 
 
     public List<Therapist> getAllAvailableTherapists(int programId, LocalDateTime timeSlot);
+    public Therapist getTherapistById(int therapistId);
 
 
 }

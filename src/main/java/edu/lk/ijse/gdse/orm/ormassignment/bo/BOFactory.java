@@ -1,9 +1,6 @@
 package edu.lk.ijse.gdse.orm.ormassignment.bo;
 
-import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.impl.PatientBOImpl;
-import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.impl.RegisterDetailsBOImpl;
-import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.impl.TherapistBOImpl;
-import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.impl.TherapyProgramBOImpl;
+import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.impl.*;
 
 public class BOFactory {
 
@@ -20,7 +17,7 @@ public class BOFactory {
     }
 
     public enum BOType {
-        PATIENT_BO, THERAPY_PROGRAM_BO, REGISTER_DETAILS_BO, THERAPIST;
+        PATIENT_BO, THERAPY_PROGRAM_BO, REGISTER_DETAILS_BO, THERAPIST, THERAPY_SESSION_BO;
     }
 
     public SuperBO getBO(BOType type) {
@@ -29,6 +26,7 @@ public class BOFactory {
             case THERAPY_PROGRAM_BO -> new TherapyProgramBOImpl();
             case REGISTER_DETAILS_BO -> new RegisterDetailsBOImpl();
             case THERAPIST -> new TherapistBOImpl();
+            case THERAPY_SESSION_BO -> new TherapySessionBOImpl();
             default -> null;
         };
     }

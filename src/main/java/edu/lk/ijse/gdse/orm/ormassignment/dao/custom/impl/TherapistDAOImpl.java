@@ -85,4 +85,16 @@ public class TherapistDAOImpl implements TherapistDAO {
 
 
     }
+
+    @Override
+    public Therapist getTherapistById(int therapistId) {
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction tx = session.beginTransaction();
+        Therapist therapist = session.get(Therapist.class, therapistId);
+        tx.commit();
+        session.close();
+
+        return therapist;
+    }
 }

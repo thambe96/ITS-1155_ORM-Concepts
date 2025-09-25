@@ -42,7 +42,7 @@
                </font>
             </Label>
             <Pane prefHeight="27.0" prefWidth="15.0" />
-            <Label fx:id="lblPatId" prefHeight="27.0" prefWidth="85.0" text="id" />
+            <Label fx:id="lblPatId" prefHeight="27.0" prefWidth="85.0" />
             <Pane layoutX="82.0" layoutY="10.0" prefHeight="27.0" prefWidth="46.0" />
             <Label layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="97.0" text="patient name">
                <font>
@@ -50,7 +50,7 @@
                </font>
             </Label>
             <Pane layoutX="182.0" layoutY="10.0" prefHeight="27.0" prefWidth="15.0" />
-            <Label fx:id="lblPatName" layoutX="197.0" layoutY="10.0" prefHeight="27.0" prefWidth="115.0" text="name" />
+            <Label fx:id="lblPatName" layoutX="197.0" layoutY="10.0" prefHeight="27.0" prefWidth="115.0" />
          </children>
       </HBox>
       <HBox layoutX="6.0" layoutY="229.0" prefHeight="27.0" prefWidth="547.0">
@@ -82,11 +82,31 @@
             </TableView>
          </children>
       </VBox>
-      <HBox layoutX="6.0" layoutY="378.0" prefHeight="31.0" prefWidth="547.0">
+      <HBox alignment="CENTER" layoutX="7.0" layoutY="424.0" prefHeight="31.0" prefWidth="547.0">
          <children>
             <Button mnemonicParsing="false" onAction="#bookAppoinment" prefHeight="31.0" prefWidth="162.0" text="Book Appointment" />
             <Pane prefHeight="31.0" prefWidth="56.0" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="162.0" text="Reset" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="3.0" layoutY="381.0" prefHeight="27.0" prefWidth="554.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="96.0" text="Therapist ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="27.0" prefWidth="29.0" />
+            <Label fx:id="lblTherapistId" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="130.0" />
+            <Pane layoutX="98.0" layoutY="10.0" prefHeight="27.0" prefWidth="29.0" />
+            <Label layoutX="118.0" layoutY="10.0" prefHeight="27.0" prefWidth="112.0" text="Terapist Name">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutX="241.0" layoutY="10.0" prefHeight="27.0" prefWidth="29.0" />
+            <Label fx:id="lblTherapistName" layoutX="226.0" layoutY="10.0" prefHeight="27.0" prefWidth="200.0" />
+            <Pane layoutX="353.0" layoutY="10.0" prefHeight="27.0" prefWidth="29.0" />
          </children>
       </HBox>
    </children>
