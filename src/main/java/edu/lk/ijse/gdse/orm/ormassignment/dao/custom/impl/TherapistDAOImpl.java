@@ -23,10 +23,25 @@ public class TherapistDAOImpl implements TherapistDAO {
         return true;
     }
 
+
+
+
     @Override
     public List<Therapist> getAll() throws Exception {
-        return List.of();
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction tx = session.beginTransaction();
+        List<Therapist> therapistsLists = session.createQuery("from Therapist").list();
+        tx.commit();
+        session.close();
+
+
+        return therapistsLists;
     }
+
+
+
+
 
     @Override
     public boolean update(Therapist entity) throws Exception {

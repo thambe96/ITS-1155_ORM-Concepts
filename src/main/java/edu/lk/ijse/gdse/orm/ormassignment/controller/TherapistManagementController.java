@@ -6,9 +6,13 @@ import edu.lk.ijse.gdse.orm.ormassignment.bo.custom.TherapyProgramBO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.PatientDTO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.TherapistDTO;
 import edu.lk.ijse.gdse.orm.ormassignment.dto.TherapyProgramDTO;
+import edu.lk.ijse.gdse.orm.ormassignment.dto.tm.PatientTM;
+import edu.lk.ijse.gdse.orm.ormassignment.dto.tm.TherapistTM;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +38,7 @@ public class TherapistManagementController {
     private ComboBox<Integer> cmbAddProgram;
 
     @FXML
-    private TableView<?> tblTherapistDetail;
+    private TableView<TherapistTM> tblTherapistDetail;
 
     @FXML
     private TableColumn<?, ?> colTherapistId;
@@ -69,6 +73,8 @@ public class TherapistManagementController {
         int programId = cmbAddProgram.getSelectionModel().getSelectedItem();
         therapistDTO.setId(programId);
         therapistBO.saveTherapist(therapistDTO);
+
+        loadTherapistDetailTable();
 
 
 
@@ -114,8 +120,6 @@ public class TherapistManagementController {
         loadValuesToTherapistComboBox();
 
 
-
-
         cmbAddProgram.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
 //                System.out.println("New selected value: " + newVal);
@@ -132,6 +136,15 @@ public class TherapistManagementController {
 
 
 
+        //Table column initialitation
+
+        tblTherapistDetail.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        tblTherapistDetail.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblTherapistDetail.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
+        tblTherapistDetail.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("therapyProgramId"));
+
+
+        loadTherapistDetailTable();
 
 
 
@@ -157,6 +170,41 @@ public class TherapistManagementController {
 
 
     }
+
+
+
+    private void loadTherapistDetailTable() {
+
+        tblTherapistDetail.getItems().clear();
+        ObservableList<TherapistTM> patientRows= (ObservableList<TherapistTM>) tblTherapistDetail.getItems();
+
+
+
+        try {
+
+            List<TherapistDTO> allTherapistDTOS = therapistBO.getTherapists();
+
+
+            for (TherapistDTO therapistDTO : allTherapistDTOS) {
+                TherapistTM therapistTM = new TherapistTM();
+                therapistTM.setId(therapistDTO.getId());
+                therapistTM.setName(therapistDTO.getName());
+                therapistTM.setEmail(therapistDTO.getEmail());
+                therapistTM.setTherapyProgramId(therapistDTO.getTherapyProgramId());
+                patientRows.add(therapistTM);
+
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+
+
 
 
 

@@ -40,10 +40,10 @@
                </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="41.0" prefHeight="22.0" prefWidth="513.0" />
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="72.0" prefHeight="17.0" prefWidth="513.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="72.0" prefHeight="17.0" prefWidth="513.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shedule Date" wrappingWidth="234.89013671875" />
-                  <Pane prefHeight="39.0" prefWidth="71.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reg Date" wrappingWidth="100.0" />
+                  <Pane prefHeight="31.0" prefWidth="49.0" />
                   <DatePicker fx:id="datePicker" prefHeight="31.0" prefWidth="225.0" />
                </children>
             </HBox>

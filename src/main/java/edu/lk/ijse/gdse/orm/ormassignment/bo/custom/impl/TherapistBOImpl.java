@@ -10,11 +10,18 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.Therapist;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapyProgram;
 import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TherapistBOImpl implements TherapistBO {
+
+
 
     TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.THERAPIST);
     TherapyProgramDAO therapyProgramDAO = (TherapyProgramDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.THERAPY_PROGRAM);
     ModelMapper modelMapper = new ModelMapper();
+
+
 
     @Override
     public boolean saveTherapist(TherapistDTO therapistDTO) {
@@ -41,6 +48,39 @@ public class TherapistBOImpl implements TherapistBO {
 
     }
 
+
+
+
+    @Override
+    public List<TherapistDTO> getTherapists() {
+
+        try {
+            List<Therapist> allTherapists = therapistDAO.getAll();
+
+            List<TherapistDTO> therapistDTOs = new ArrayList<TherapistDTO>();
+
+            for (Therapist therapist : allTherapists) {
+
+                TherapistDTO therapistDTO = new TherapistDTO();
+
+                therapistDTO.setId(therapist.getId());
+                therapistDTO.setName(therapist.getName());
+                therapistDTO.setEmail(therapist.getEmail());
+                therapistDTO.setTherapyProgramId(therapist.getTherapyProgram().getTherapyProgramId());
+
+                therapistDTOs.add(therapistDTO);
+
+
+            }
+
+            return therapistDTOs;
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
 
