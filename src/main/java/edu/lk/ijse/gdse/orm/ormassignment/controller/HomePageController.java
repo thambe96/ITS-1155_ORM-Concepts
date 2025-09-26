@@ -59,7 +59,7 @@ public class HomePageController {
 
     @FXML
     void navigateToUserManagement(ActionEvent event) {
-        String url = "/view/user-management.fxml";
+        String url = "/view/welcome-page.fxml";
         loadPage(url);
     }
 
