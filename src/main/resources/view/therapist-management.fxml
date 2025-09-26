@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="520.0" prefWidth="560.0" style="-fx-background-color: B2CE67;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.lk.ijse.gdse.orm.ormassignment.controller.TherapistManagementController">
+<AnchorPane prefHeight="520.0" prefWidth="560.0" style="-fx-background-color: #D1F4ED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.lk.ijse.gdse.orm.ormassignment.controller.TherapistManagementController">
    <children>
       <Text layoutX="183.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Therapist Mangement">
          <font>

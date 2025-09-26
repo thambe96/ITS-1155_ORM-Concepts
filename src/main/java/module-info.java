@@ -6,6 +6,7 @@ module edu.lk.ijse.gdse.orm.ormassignment {
     requires static lombok;
     requires java.naming;
     requires modelmapper;
+    requires jbcrypt;
 
 
     opens edu.lk.ijse.gdse.orm.ormassignment to javafx.fxml;

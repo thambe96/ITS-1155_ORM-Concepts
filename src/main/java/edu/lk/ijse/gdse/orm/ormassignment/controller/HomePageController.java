@@ -1,14 +1,54 @@
 package edu.lk.ijse.gdse.orm.ormassignment.controller;
 
+import edu.lk.ijse.gdse.orm.ormassignment.util.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class HomePageController {
+
+
+
+    @FXML
+    private Button btnUser;
+
+    @FXML
+    private Button btnPatient;
+
+    @FXML
+    private Button btnTherapist;
+
+    @FXML
+    private Button btnTherapyProgram;
+
+    @FXML
+    private Button btnAddTherapyProgram;
+
+    @FXML
+    private Button btnBookTherapySessions;
+
+    @FXML
+    private Button btnPayments;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     private AnchorPane ancStageHome;
@@ -84,6 +124,30 @@ public class HomePageController {
             new Alert(Alert.AlertType.ERROR, "Something went wrong while loading the page").show();
 
         }
+
+    }
+
+    public void initialize() {
+
+        loadPage("/view/welcome-page.fxml");
+
+
+        if (Session.getLoggedUser().getRole().equals("ADMIN")) {
+
+            System.out.println("Adoo This is ADmin !!");
+
+            btnUser.setDisable(true);
+            btnPatient.setDisable(true);
+            btnAddTherapyProgram.setDisable(true);
+            btnBookTherapySessions.setDisable(true);
+            btnPayments.setDisable(true);
+
+
+
+        }
+
+
+
 
     }
 

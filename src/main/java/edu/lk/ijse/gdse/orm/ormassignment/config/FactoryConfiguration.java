@@ -22,6 +22,7 @@ public class FactoryConfiguration {
         config.addAnnotatedClass(RegisterDetails.class);
         config.addAnnotatedClass(Therapist.class);
         config.addAnnotatedClass(TherapySession.class);
+        config.addAnnotatedClass(User.class);
 //        config.addAnnotatedClass(Orders.class);
 
 

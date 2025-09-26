@@ -17,7 +17,7 @@ public class DAOFactory {
     }
 
     public enum DAOType {
-        PATIENT, THERAPY_PROGRAM, REGISTER_DETAILS, THERAPIST, THERAPY_SESSION;
+        PATIENT, THERAPY_PROGRAM, REGISTER_DETAILS, THERAPIST, THERAPY_SESSION, USER;
     }
 
     public SuperDAO getDAO(DAOType type) {
@@ -28,6 +28,7 @@ public class DAOFactory {
             case REGISTER_DETAILS -> new RegisterDetailsDAOImpl();
             case THERAPIST -> new TherapistDAOImpl();
             case THERAPY_SESSION -> new TherapySessionDAOImpl();
+            case USER -> new UserDAOImpl();
             default -> null;
         };
 
