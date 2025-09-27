@@ -67,6 +67,56 @@ public class TherapistManagementController {
     @FXML
     void saveTherapist(ActionEvent event) {
 
+
+        String regex = "^dr\\.[A-Z][a-zA-Z]+$";
+        String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        String inputName = txtTherapistName.getText();
+        String inputEmail = txtTherapistEmail.getText();
+
+        if (inputName.isEmpty() || inputEmail.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter all the details");
+            alert.showAndWait();
+
+            return;
+        }
+
+        if (!inputName.matches(regex)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid format in the name section");
+            alert.showAndWait();
+            return;
+        }
+
+        if (!inputEmail.matches(regexEmail)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid format in the email section");
+            alert.showAndWait();
+            return;
+
+        }
+
+        if (cmbAddProgram.getSelectionModel().getSelectedIndex() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select the program");
+            alert.showAndWait();
+            return;
+        }
+
+
+
+
+
+
         TherapistDTO therapistDTO = new TherapistDTO();
         therapistDTO.setName(txtTherapistName.getText());
         therapistDTO.setEmail(txtTherapistEmail.getText());

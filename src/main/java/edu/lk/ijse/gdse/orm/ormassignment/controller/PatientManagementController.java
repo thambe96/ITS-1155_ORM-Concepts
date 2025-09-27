@@ -92,6 +92,82 @@ public class PatientManagementController {
         String semail = email.getText();
 
 
+        String regexPatientName = "^[A-Z][a-z]{2,}$";
+
+
+        if (!sid.matches(regexPatientName)) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Patient Name is Not in the Valid format");
+            alert.showAndWait();
+
+            return;
+        }
+
+        String regexPatientEmal = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        if (!semail.matches(regexPatientEmal)) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Email is Not in the Valid format");
+            alert.showAndWait();
+
+            return;
+
+
+        }
+
+        String regexAge = "^(?:1[01][0-9]|120|[1-9][0-9]?)$";
+
+        if (!sage.matches(regexAge)) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Age is Not in the Valid format");
+            alert.showAndWait();
+
+            return;
+        }
+
+
+        String addressRegex = "^(Panadura|Aluthgama|Kaluthara)$";
+        String genderRegex = "^(Male|Female)$";
+
+
+        if (!saddress.matches(addressRegex)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Address is Not in the Valid format");
+            alert.showAndWait();
+
+            return;
+        }
+
+        if (sgender.matches(genderRegex)) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Gender is Not in the Valid format");
+            alert.showAndWait();
+
+            return;
+
+
+        }
+
+
+
+
+
+
+
         PatientDTO patientDTO = new PatientDTO();
 //        patientDTO.setPatientId(Integer.parseInt(sid));
         patientDTO.setPatientName(sname);
