@@ -74,7 +74,7 @@
       </HBox>
       <HBox layoutX="105.0" layoutY="294.0" prefHeight="204.0" prefWidth="384.0">
          <children>
-            <TableView fx:id="tblTherapistDetail" prefHeight="204.0" prefWidth="396.0">
+            <TableView fx:id="tblTherapistDetail" onMouseClicked="#selectRow" prefHeight="204.0" prefWidth="396.0">
               <columns>
                 <TableColumn fx:id="colTherapistId" prefWidth="39.0" text="id" />
                 <TableColumn fx:id="colTherapistName" prefWidth="93.0" text="name" />

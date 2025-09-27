@@ -4,9 +4,13 @@ import edu.lk.ijse.gdse.orm.ormassignment.util.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -34,6 +38,9 @@ public class HomePageController {
 
     @FXML
     private Button btnPayments;
+
+    @FXML
+    private Button btnLogout;
 
 
 
@@ -134,7 +141,7 @@ public class HomePageController {
 
         if (Session.getLoggedUser().getRole().equals("ADMIN")) {
 
-            System.out.println("Adoo This is ADmin !!");
+
 
             btnUser.setDisable(true);
             btnPatient.setDisable(true);
@@ -145,6 +152,42 @@ public class HomePageController {
 
 
         }
+
+
+        if (Session.getLoggedUser().getRole().equals("RECEPTIONIST")) {
+
+            btnTherapyProgram.setDisable(true);
+            btnTherapist.setDisable(true);
+
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+    @FXML
+    void handleLogout(ActionEvent event) {
+
+        Session.setLoggedUser(null);
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user-management.fxml"));
+        Parent dashboardRoot = null;
+        try {
+            dashboardRoot = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(dashboardRoot));
+        stage.setTitle("The Serenity Mental Health");
 
 
 

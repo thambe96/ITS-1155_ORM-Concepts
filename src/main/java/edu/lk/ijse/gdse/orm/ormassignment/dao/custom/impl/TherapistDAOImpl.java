@@ -46,12 +46,24 @@ public class TherapistDAOImpl implements TherapistDAO {
 
     @Override
     public boolean update(Therapist entity) throws Exception {
+
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction tx = session.beginTransaction();
+        session.merge(entity);
+        tx.commit();
+        session.close();
+
+
         return false;
     }
 
     @Override
     public boolean delete(String id) throws Exception {
-        return false;
+
+
+
+        return true;
     }
 
     @Override
@@ -96,5 +108,18 @@ public class TherapistDAOImpl implements TherapistDAO {
         session.close();
 
         return therapist;
+    }
+
+    @Override
+    public boolean delete(int therapistId) {
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        Transaction tx = session.beginTransaction();
+        session.delete(session.get(Therapist.class, therapistId));
+        tx.commit();
+        session.close();
+
+
+        return true;
     }
 }

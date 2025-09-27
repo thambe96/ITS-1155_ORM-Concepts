@@ -10,7 +10,9 @@ import edu.lk.ijse.gdse.orm.ormassignment.entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class TherapySessionBOImpl implements TherapySessionBO {
 
@@ -106,6 +108,34 @@ public class TherapySessionBOImpl implements TherapySessionBO {
         }
 
 
+
+    }
+
+    @Override
+    public List<TherapySessionDTO> getTherapySessions() {
+
+        List<TherapySession> therapySessions;
+        List<TherapySessionDTO> therapySessionDTOs = new ArrayList<TherapySessionDTO>();
+
+        try {
+            therapySessions = therapySessionDAO.getAll();
+
+            for (TherapySession therapySession : therapySessions) {
+                TherapySessionDTO therapySessionDTO = new TherapySessionDTO();
+                therapySessionDTO.setTherapySessionId(therapySession.getTherapySessionId());
+                therapySessionDTO.setSheduledTime(therapySession.getSheduledTime());
+                therapySessionDTO.setPatientId(therapySession.getPatient().getPatientId());
+                therapySessionDTO.setTherapistId(therapySession.getTherapist().getId());
+                therapySessionDTOs.add(therapySessionDTO);
+
+            }
+
+            return therapySessionDTOs;
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

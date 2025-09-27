@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +75,8 @@ public class TherapistManagementController {
         therapistDTO.setId(programId);
         therapistBO.saveTherapist(therapistDTO);
 
+        clearFields();
+
         loadTherapistDetailTable();
 
 
@@ -83,10 +86,26 @@ public class TherapistManagementController {
 
 
 
+    private void clearFields() {
+        txtTherapistName.clear();
+        txtTherapistEmail.clear();
+        cmbAddProgram.getSelectionModel().clearSelection();
+        lblTherapyProgramName.setText("");
+        lblTherapistId.setText("");
+
+    }
+
 
 
     @FXML
     void deleteTherapist(ActionEvent event) {
+
+
+        int therapistId = Integer.parseInt(lblTherapistId.getId());
+
+        therapistBO.deleteTherapist(therapistId);
+        clearFields();
+        loadTherapistDetailTable();
 
     }
 
@@ -96,7 +115,7 @@ public class TherapistManagementController {
 
     @FXML
     void resetTherapist(ActionEvent event) {
-
+        clearFields();
     }
 
 
@@ -106,6 +125,20 @@ public class TherapistManagementController {
 
     @FXML
     void updateTherapist(ActionEvent event) {
+
+//        TherapistTM therapistTM = tblTherapistDetail.getSelectionModel().getSelectedItem();
+        TherapistDTO therapistDTO = new TherapistDTO();
+        therapistDTO.setId(Integer.parseInt(lblTherapistId.getText()));
+        therapistDTO.setName(txtTherapistName.getText());
+        therapistDTO.setEmail(txtTherapistEmail.getText());
+
+        therapistDTO.setTherapyProgramId(Integer.parseInt(cmbAddProgram.getValue().toString()));
+
+        boolean flag = therapistBO.updateTherapist(therapistDTO);
+        clearFields();
+        loadTherapistDetailTable();
+
+
 
     }
 
@@ -150,6 +183,8 @@ public class TherapistManagementController {
 
 
         loadTherapistDetailTable();
+
+//        selectItemFromTable();
 
 
 
@@ -205,6 +240,24 @@ public class TherapistManagementController {
         }
 
 
+    }
+
+    public void selectItemFromTable() {
+
+        TherapistTM therapistTM = tblTherapistDetail.getSelectionModel().getSelectedItem();
+        lblTherapyProgramName.setText(therapistTM.getName());
+        lblTherapistId.setText(String.valueOf(therapistTM.getId()));
+        txtTherapistName.setText(therapistTM.getName());
+        txtTherapistEmail.setText(therapistTM.getEmail());
+
+
+
+
+    }
+
+    @FXML
+    void selectRow(MouseEvent event) {
+        selectItemFromTable();
     }
 
 

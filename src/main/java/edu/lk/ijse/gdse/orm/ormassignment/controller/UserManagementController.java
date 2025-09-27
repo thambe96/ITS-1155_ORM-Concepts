@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
@@ -25,6 +26,19 @@ public class UserManagementController {
 
     @FXML
     private TextField txtPassword;
+
+    @FXML
+    private Button btnLogin;
+
+    @FXML
+    private Button btnReset;
+
+
+    @FXML
+    void reset(ActionEvent event) {
+
+    }
+
 
 
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOType.USER_BO);

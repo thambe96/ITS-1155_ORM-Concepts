@@ -13,6 +13,8 @@ public interface TherapistBO extends SuperBO {
     public boolean saveTherapist(TherapistDTO therapistDTO);
     public List<TherapistDTO> getTherapists();
     public List<TherapistDTO> getAvailableTherapists(int programId, LocalDateTime timeSlot);
+    public boolean updateTherapist(TherapistDTO therapistDTO);
+    public boolean deleteTherapist(int therapistId);
 
 
 

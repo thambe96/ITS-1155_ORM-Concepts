@@ -4,7 +4,9 @@ import edu.lk.ijse.gdse.orm.ormassignment.config.FactoryConfiguration;
 import edu.lk.ijse.gdse.orm.ormassignment.dao.custom.TherapySessionDAO;
 import edu.lk.ijse.gdse.orm.ormassignment.entity.TherapySession;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TherapySessionDAOImpl implements TherapySessionDAO {
@@ -30,7 +32,17 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
 
     @Override
     public List<TherapySession> getAll() throws Exception {
-        return List.of();
+
+        Session session = FactoryConfiguration.getInstance().getSessionFactory();
+        session.beginTransaction();
+
+
+        List<TherapySession> list = session.createQuery("from TherapySession").list();
+        session.getTransaction().commit();
+        session.close();
+
+
+        return list;
     }
 
 

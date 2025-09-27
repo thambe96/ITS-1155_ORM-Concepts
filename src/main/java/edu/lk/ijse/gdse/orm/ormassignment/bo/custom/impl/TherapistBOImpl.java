@@ -109,5 +109,35 @@ public class TherapistBOImpl implements TherapistBO {
         return availableTherapistsDtos;
     }
 
+    @Override
+    public boolean updateTherapist(TherapistDTO therapistDTO) {
+
+        Therapist therapist = therapistDAO.getTherapistById(therapistDTO.getId());
+        therapist.setName(therapistDTO.getName());
+        therapist.setEmail(therapistDTO.getEmail());
+
+        try {
+            boolean flag = therapistDAO.update(therapist);
+            return flag;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    @Override
+    public boolean deleteTherapist(int therapistId) {
+
+        try {
+            boolean flag = therapistDAO.delete(therapistId);
+            return flag;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 
 }
